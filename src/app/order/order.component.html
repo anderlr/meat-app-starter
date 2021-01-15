@@ -4,8 +4,8 @@
 
 <section class="content">
   <section class="invoice">
-    {{form.valid}}
-    {{form.value|json}}
+    <!-- {{form.valid}}
+    {{form.value|json}} -->
 
     <form #form='ngForm' novalidate>
       <div class="row">
@@ -61,7 +61,9 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-            <mt-radio name="paymentOption" ngModel [options]="paymentOptions"></mt-radio>
+            <mt-radio name="paymentOption" required ngModel #paymentSelected="ngModel" [options]="paymentOptions">
+            </mt-radio>
+            <p style="color: red" *ngIf="!paymentSelected.dirty">Por favor, selecione um método de pagamento</p>
           </div>
 
         </div>
@@ -95,9 +97,8 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <button (click)="checkOrder(form.value)" href="order-summary.html" class="btn btn-success pull-right" [disabled]="!form.valid"><i
-            class="fa fa-credit-card"></i> Concluir
-          Pedido
+        <button (click)="checkOrder(form.value)" href="order-summary.html" class="btn btn-success pull-right"
+          [disabled]="!form.valid || cartItems().length === 0"><i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
       </div>
     </div>
