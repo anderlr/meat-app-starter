@@ -10,6 +10,10 @@ import {MEAT_API} from '../app.api'
 export class OrderService {
     constructor(private cartService: ShoppingCartService, private http: Http) { }
 
+    itemsValue():number {
+        return this.cartService.total()
+    }
+
     cartItems(): CartItem[] {
         return this.cartService.items
     }
