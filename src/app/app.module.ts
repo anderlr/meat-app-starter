@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule} from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
 import { RouterModule,PreloadAllModules} from '@angular/router';
-import {LocationStrategy,HashLocationStrategy} from '@angular/common'
+import {LocationStrategy,HashLocationStrategy,registerLocaleData} from '@angular/common'
+import locatePt from '@angular/common/locales/pt'
+
+registerLocaleData(locatePt, 'pt')
+
 import {ROUTES} from './app.routes'
 
 import { AppComponent } from './app.component';
@@ -39,15 +43,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     NotFoundComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(ROUTES,{preloadingStrategy: PreloadAllModules}),
     SharedModule,
-    HttpModule,
+    HttpClientModule,
     CoreModule,
     BrowserAnimationsModule,
   ],
-  providers: [{provide:LocationStrategy, useClass:HashLocationStrategy},{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [{provide:LocationStrategy, useClass:HashLocationStrategy},{provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
