@@ -22,7 +22,7 @@ import { SharedModule } from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import { NotFoundComponent } from './not-found/not-found.component'
 
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,7 @@ import { NotFoundComponent } from './not-found/not-found.component'
     SharedModule,
     HttpModule,
     CoreModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
   ],
   providers: [{provide:LocationStrategy, useClass:HashLocationStrategy},{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
