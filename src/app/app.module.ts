@@ -43,7 +43,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     NotFoundComponent,
   ],
   imports: [
-    ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(ROUTES,{preloadingStrategy: PreloadAllModules}),

@@ -37,5 +37,7 @@ export class RadioComponent implements OnInit,ControlValueAccessor {
     this.onChange=fn
   }
 
-  registerOnTouched(){}
+  registerOnTouched(fn: any): void {}
+
+  setDisabledState?(isDisabled: boolean): void {}
 }
