@@ -90,10 +90,8 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-            <mt-radio  id="teste" formControlName="paymentOption" [options]="paymentOptions">
-            </mt-radio>
-            <p style="color: red" *ngIf="orderForm.get('paymentOption').hasError('required')" >Por favor, selecione um método de pagamento</p>
-          </div>
+            <mt-radio formControlName="paymentOption" [options]="paymentOptions"></mt-radio>
+         </div>
 
         </div>
         <!-- /.col -->
